@@ -1,12 +1,23 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Assets/background/Sky-layer.png" type="Texture" id=1]
+[ext_resource path="res://Assets/background/buildings-layer.png" type="Texture" id=2]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
 [node name="Sky" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 960, 0 )
 
 [node name="Sprite" type="Sprite" parent="Sky"]
 scale = Vector2( 9.12126, 2.66535 )
 texture = ExtResource( 1 )
 centered = false
+
+[node name="City" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.7, 0.7 )
+motion_mirroring = Vector2( 960, 0 )
+
+[node name="Sprite" type="Sprite" parent="City"]
+position = Vector2( 540.292, 266.724 )
+scale = Vector2( 5.58684, 4.59583 )
+texture = ExtResource( 2 )
