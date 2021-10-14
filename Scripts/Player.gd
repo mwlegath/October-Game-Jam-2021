@@ -35,11 +35,9 @@ func _physics_process(delta):
 	vel.y += gravity * delta
 	
 	# sprite animation move right
-	if Input.is_action_pressed("move_right"):
+	if vel.x > 0:
 		sprite.play("Walk_Right") 
-	else:
-		sprite.play("Idle")
-	if Input.is_action_pressed("move_left"):
+	elif vel.x < 0:
 		sprite.play("Walk_Left")
 	else:
 		sprite.play("Idle")
