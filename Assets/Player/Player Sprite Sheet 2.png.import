@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/daxbotsheet.png-e6102ed01bd2ec1ee959a8013a654427.stex"
+path="res://.import/Player Sprite Sheet 2.png-7143947f2209ef15b367b3d9331a2818.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/daxbotsheet.png"
-dest_files=[ "res://.import/daxbotsheet.png-e6102ed01bd2ec1ee959a8013a654427.stex" ]
+source_file="res://Assets/Player/Player Sprite Sheet 2.png"
+dest_files=[ "res://.import/Player Sprite Sheet 2.png-7143947f2209ef15b367b3d9331a2818.stex" ]
 
 [params]
 

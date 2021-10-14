@@ -36,14 +36,14 @@ func _physics_process(delta):
 	
 	# sprite animation move right
 	if Input.is_action_pressed("move_right"):
-		sprite.play("run") 
+		sprite.play("Walk_Right") 
 	else:
-		sprite.play("idle")
+		sprite.play("Idle")
 	if Input.is_action_pressed("move_left"):
-		sprite.play("run")
+		sprite.play("Walk_Left")
 	else:
-		sprite.play("idle")
-		
+		sprite.play("Idle")
+
 	
 
 		
