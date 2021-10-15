@@ -36,11 +36,21 @@ func _physics_process(delta):
 	
 	# sprite animation move right
 	if vel.x > 0:
-		sprite.play("Walk_Right") 
+		sprite.play("Walk") 
 	elif vel.x < 0:
-		sprite.play("Walk_Left")
+		sprite.play("Walk")
 	else:
 		sprite.play("Idle")
+	
+	if vel.y < 0:
+		sprite.play("Jump")
+		
+	if Input.is_action_pressed("move_left"):
+		sprite.set_flip_h(true)
+	if Input.is_action_pressed("move_right"):
+		sprite.set_flip_h(false)
+		
+	
 
 	
 

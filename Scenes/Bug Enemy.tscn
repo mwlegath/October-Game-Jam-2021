@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Enemy/Bug Enemy 1.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Bug Enemy.gd" type="Script" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 46, 22 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 46, 0, 46, 22 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 17.5182, 12.7774 )
+
+[node name="Bug Enemy" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 3 )
+animation = "Walk"
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -3.35854, 0.222713 )
+shape = SubResource( 4 )
+
+[node name="floor_checker" type="RayCast2D" parent="."]
+position = Vector2( 0, -1.336 )
+enabled = true
+cast_to = Vector2( 0, 19 )
