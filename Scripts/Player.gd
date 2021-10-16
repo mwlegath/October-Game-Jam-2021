@@ -27,6 +27,8 @@ func _physics_process(delta):
 		vel.x += speed 
 	if Input.is_action_pressed("jump") and is_on_floor():
 		vel.y -= jumpForce
+	if position.y >= 650:
+		die()
 	
 	# applying velocity 
 	vel = move_and_slide(vel, Vector2.UP)
@@ -51,7 +53,9 @@ func _physics_process(delta):
 		sprite.set_flip_h(false)
 		
 	
-
+func die ():
+	get_tree().reload_current_scene()
+	
 	
 
 		

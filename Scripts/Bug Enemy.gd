@@ -16,7 +16,7 @@ func _ready():
 		sprite.set_flip_h(true)
 	else:
 		sprite.set_flip_h(false)
-	
+	sprite.play("Walk")
 	$floor_checker.position.x = $CollisionShape2D.shape.get_extents().x * direction
 	$floor_checker.enabled = detects_cliffs
 	

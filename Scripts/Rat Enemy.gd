@@ -1,12 +1,14 @@
 extends KinematicBody2D
 
 var velocity = Vector2()
+var speed = 50
 
 onready var sprite = $AnimatedSprite
 
 # 1 is right, -1 is left
 export var direction = -1
 export var detects_cliffs = true
+export var alive = true 
 
 
 
@@ -16,6 +18,7 @@ func _ready():
 		sprite.set_flip_h(true)
 	else:
 		sprite.set_flip_h(false)
+	sprite.play("Walk")
 	
 	$floor_checker.position.x = $CollisionShape2D.shape.get_extents().x * direction
 	$floor_checker.enabled = detects_cliffs
@@ -31,6 +34,17 @@ func _physics_process(delta):
 	# += means to add to variable
 	velocity.y += 20
 	
-	velocity.x = 50 * direction 
+	velocity.x = speed * direction 
 	
 	velocity = move_and_slide(velocity,Vector2.UP)
+
+
+func _on_Top_Checker_body_entered(body):
+	alive = false 
+	sprite.play("Death")
+	speed = 0
+	queue_free()
+
+
+func _on_Sides_Checker_body_entered(body):
+	get_tree().reload_current_scene()
