@@ -3,13 +3,14 @@ extends KinematicBody2D
 # Physics 
 var speed : int = 200 
 var jumpForce : int = 450
-var gravity : int = 800
+var gravity : int = 750
 var vel : Vector2 = Vector2()
 var grounded : bool = false
 
 # components 
 onready var sprite = $AnimatedSprite
-
+onready var ui = get_node("../CanvasLayer/UI")
+var score : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -55,6 +56,11 @@ func _physics_process(delta):
 	
 func die ():
 	get_tree().reload_current_scene()
+
+func collect_coin (value):
+	
+	score += value
+	ui.set_score_text(score)
 	
 	
 

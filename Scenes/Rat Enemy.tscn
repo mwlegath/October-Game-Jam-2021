@@ -4,50 +4,50 @@
 [ext_resource path="res://Assets/Enemy/mouse run.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Enemy/mouse death.png" type="Texture" id=3]
 
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 32, 16 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 2 )
-region = Rect2( 32, 0, 32, 16 )
-
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 2 )
-region = Rect2( 64, 0, 32, 16 )
-
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 32, 16 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 3 )
 region = Rect2( 32, 0, 32, 16 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 3 )
 region = Rect2( 64, 0, 32, 16 )
 
-[sub_resource type="SpriteFrames" id=13]
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 32, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 32, 16 )
+
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
-"loop": true,
-"name": "Walk",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
 "loop": false,
 "name": "Death",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 14.6228, 9.88199 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 11.5709, 0.810743 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 0.964062, 6.35451 )
 
 [node name="Rat Enemy" type="KinematicBody2D"]
@@ -55,13 +55,13 @@ script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 2, 2 )
-frames = SubResource( 13 )
+frames = SubResource( 7 )
 animation = "Walk"
 frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1.30497, 4.75805 )
-shape = SubResource( 5 )
+shape = SubResource( 8 )
 
 [node name="floor_checker" type="RayCast2D" parent="."]
 position = Vector2( -0.251903, 4.52712 )
@@ -72,19 +72,19 @@ cast_to = Vector2( 0, 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top_Checker"]
 position = Vector2( -0.828556, -7.81846 )
-shape = SubResource( 6 )
+shape = SubResource( 9 )
 
 [node name="Sides_Checker" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sides_Checker"]
 position = Vector2( -19.6617, 4.75606 )
-shape = SubResource( 14 )
+shape = SubResource( 10 )
 
 [node name="Sides_Checker" type="Area2D" parent="Sides_Checker"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sides_Checker/Sides_Checker"]
 position = Vector2( 15.7736, 4.04735 )
-shape = SubResource( 14 )
+shape = SubResource( 10 )
 
 [connection signal="body_entered" from="Top_Checker" to="." method="_on_Top_Checker_body_entered"]
 [connection signal="body_entered" from="Sides_Checker" to="." method="_on_Sides_Checker_body_entered"]
