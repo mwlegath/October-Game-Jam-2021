@@ -4,50 +4,50 @@
 [ext_resource path="res://Scripts/Bug Enemy.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Enemy/Bug Enemy death.png" type="Texture" id=3]
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 40, 22 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 3 )
 region = Rect2( 40, 0, 40, 22 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 3 )
 region = Rect2( 80, 0, 40, 22 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 3 )
 region = Rect2( 120, 0, 40, 22 )
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 46, 22 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 1 )
 region = Rect2( 46, 0, 46, 22 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "Death",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"frames": [ SubResource( 5 ), SubResource( 6 ) ],
 "loop": true,
 "name": "Walk",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 17.5182, 12.7774 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 14.9199, 0.779373 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 0.777733, 10 )
 
 [node name="Bug Enemy" type="KinematicBody2D"]
@@ -55,12 +55,12 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 1.5, 1.5 )
-frames = SubResource( 3 )
+frames = SubResource( 7 )
 animation = "Death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -3.35854, 0.222713 )
-shape = SubResource( 4 )
+shape = SubResource( 8 )
 
 [node name="floor_checker" type="RayCast2D" parent="."]
 position = Vector2( 0, -1.336 )
@@ -71,19 +71,19 @@ cast_to = Vector2( 0, 19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top_Checker"]
 position = Vector2( -3.35876, -14.9376 )
-shape = SubResource( 5 )
+shape = SubResource( 9 )
 
 [node name="Side_checker" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Side_checker"]
 position = Vector2( 17.3241, 0 )
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Side_checker2" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Side_checker2"]
 position = Vector2( -23.9533, 0.707106 )
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [connection signal="body_entered" from="Top_Checker" to="." method="_on_Top_Checker_body_entered"]
 [connection signal="body_entered" from="Side_checker" to="." method="_on_Side_checker_body_entered"]

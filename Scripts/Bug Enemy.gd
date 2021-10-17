@@ -45,4 +45,5 @@ func _on_Top_Checker_body_entered(body):
 
 
 func _on_Side_checker_body_entered(body):
-	get_tree().reload_current_scene()
+	if body.name == "Player":
+		get_tree().reload_current_scene()

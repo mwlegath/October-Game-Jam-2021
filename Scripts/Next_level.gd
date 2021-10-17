@@ -14,4 +14,4 @@ func _ready():
 
 func _on_Next_level_body_entered(body):
 	if body.name == "Player":
-		get_tree().change_scene("res://Scenes/Level_" + str(int(get_tree().current_scene.name) + 1) + ".tscn")
+		get_tree().change_scene("res://Scenes/Game End.tscn")
